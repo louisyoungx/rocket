@@ -1,0 +1,118 @@
+.rocket-main{
+    margin: 0;
+    padding: 0;
+}
+
+.rocket-container{
+    cursor: pointer;
+    height: 100vh;
+    background: rgb(0,2,19);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rocket-container .rocket-img{
+    position: relative;
+    animation: rocket-shake 0.2s linear infinite;
+}
+
+@keyframes rocket-shake{
+    0%, 100%{
+        transform: translateY(-2px);
+    }
+    50% {
+        transform: translateY(2px);
+    }
+}
+
+.rocket-img img{
+    width: 50%;
+}
+
+.rocket-container .rocket-img::after{
+    content: "";
+    width: 10px;
+    height: 150px;
+    border-radius: 20px;
+    background: linear-gradient(rgb(40, 158, 194), transparent) ;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -150px;
+}
+
+.rocket-container i{
+    background: #fff;
+    width: 1px;
+    height: 30px;           /* 30 - 100 */
+    position: absolute;
+    left: 20px;             /* 1 - 100vw */
+    top: 20px;
+    animation: rocket-flash 2s linear infinite;
+}
+
+.rocket-title{
+    transform: translateX(-50%);
+    position: absolute;
+    margin-top: 180px;
+    color: #fff;
+    font-size: 20px;
+}
+
+@keyframes rocket-flash {
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(100vh);
+    }
+}
+
+.rocket-fadeOut {
+    animation-timing-function: ease-in;
+    animation: fadeOut 0.3s linear 1 normal;
+}
+
+@keyframes fadeOut {
+    from{
+        opacity: 100;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+.rocket-fadeIn {
+    animation-timing-function: ease-out;
+    animation: fadeIn 1s linear infinite normal;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 100;
+    }
+}
+
+.rocket-flare {
+    animation: flare 3s infinite linear;
+}
+
+@keyframes flare {
+    0% {
+        opacity: 0.1; /*初始状态 透明度为0*/
+    }
+    50% {
+        opacity: 0.9; /*中间状态 透明度为1*/
+    }
+    100% {
+        opacity: 0.1; /*结尾状态 透明度为0*/
+    }
+}
+
+
+
