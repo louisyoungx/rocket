@@ -1,7 +1,7 @@
 <template>
   <loading-rocket :ShowTitle="title" :style="{display: load}" :class="{'rocket-fadeOut':fadeOut}" @click="isLoading()"></loading-rocket>
   <div id="app" class="container class-container main" :style="{display: loaded}" :class="{'rocket-fadeIn':fadeIn}">
-    <h1 class="class-title">180851班青年大学习</h1>
+    <h2 class="class-title">180851班青年大学习</h2>
     <!--总结-->
     <div>
       <p>180851班共 {{res.AllNum}} 人，已完成 {{res.DoNum}} 人，未完成 {{res.DontNum}} 人</p>
@@ -37,6 +37,7 @@
   import $ from 'jquery'
   import 'bootstrap/dist/css/bootstrap.min.css'
   import 'bootstrap/dist/js/bootstrap.min'
+  import BScroll from 'better-scroll'
   import LoadingRocket from '../components/LoadingRocket'
   import Navbar from '../components/Navbar'
 
@@ -61,6 +62,15 @@
         this.res = res.data
         this.enter = true
         this.title = "点 击 进 入"
+
+        this.nextTick(()=>{
+          new BScroll('.wrapper', {
+            pullUpLoad: true,
+            scrollbar: true,
+            pullDownRefresh: true
+            // and so on
+          })
+        })
       })
     },
     methods:{
