@@ -2,7 +2,8 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/Course">Course</router-link> |
-    <router-link to="/DXX">大学习</router-link> |
+    <router-link to="/DXX">DXX</router-link> |
+    <router-link to="/Gate">Gate</router-link> |
     <router-link to="/Rocket">Rocket</router-link>
   </div>
   <router-view/>

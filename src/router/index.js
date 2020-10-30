@@ -3,6 +3,8 @@ import Home from '../views/Home.vue'
 import Course from '../views/Course.vue'
 import Rocket from '../views/Rocket.vue'
 import DXX from '../views/DxxInfo'
+import Gate from "../views/Gate/GateDashboard";
+import GateOpen from "../views/Gate/GateOpen";
 
 const routes = [
   {
@@ -24,6 +26,16 @@ const routes = [
     path: '/DXX',
     name: 'DXX',
     component: DXX
+  },
+  {
+    path: '/Gate',
+    name: 'Gate',
+    component: Gate
+  },
+  {
+    path: '/GateOpen',
+    name: 'GateOpen',
+    component: GateOpen
   },
 ]
 

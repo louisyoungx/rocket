@@ -1,17 +1,20 @@
 <template>
-  <loading-rocket :ShowTitle="title" :style="{display: load}" :class="{'rocket-fadeOut':fadeOut}" @click="isLoading()"></loading-rocket>
-  <div id="app" class="main" :style="{display: loaded}" :class="{'rocket-fadeIn':fadeIn}">
-    <navbar></navbar>
-    <div>
-      <p style="font-size: 25px">你说什么？</p>
-    </div>
-    <div class="main">
-      <img class="banner" style="width: 90%" src="../assets/images/IMG_3922@0.5x.jpg" alt="">
+  <div class="all">
+    <loading-rocket :ShowTitle="title" :style="{display: load}" :class="{'rocket-fadeOut':fadeOut}" @click="isLoading()"></loading-rocket>
+    <div id="app" class="main" :style="{display: loaded}" :class="{'rocket-fadeIn':fadeIn}">
+      <navbar></navbar>
       <div>
-        <p style="font-size: 25px">李美妮是大笨蛋</p>
+        <p style="font-size: 25px">你说什么？</p>
+      </div>
+      <div class="main">
+        <img class="banner" style="width: 90%" src="../assets/images/IMG_3922@0.5x.jpg" alt="">
+        <div>
+          <p style="font-size: 25px">李美妮是大笨蛋</p>
+        </div>
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -58,6 +61,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  .all {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
   .main{
     display: flex;
     justify-content: center;

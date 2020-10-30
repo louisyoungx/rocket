@@ -1,0 +1,93 @@
+<template>
+    <div class="all">
+        <form class="form-signin">
+            <a href="/gate">
+                <img class="gate-logo mb-4" src="../../assets/images/gate-logo.jpg" alt="">
+            </a>
+            <h1 class="h3 mb-3 font-weight-normal" style="color: #fff">认证</h1>
+            <label for="inputEmail" class="sr-only">username</label>
+            <input v-model="username" type="text" id="inputEmail" class="form-control" placeholder="用户名" required autofocus>
+            <label for="inputPassword" class="sr-only">password</label>
+            <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="密码" required>
+            <button @click="SendRequest(username, password)" type="button" class="gate-open-button btn btn-lg btn-primary btn-block">开门</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 云端智能锁</p>
+        </form>
+    </div>
+
+</template>
+
+<script>
+    import ajax from 'jquery'
+    import $ from 'jquery'
+    export default {
+        name: "GateOpen",
+        data(){
+            return{
+                url:'API/Security/open-gate/',
+                username:"",
+                password:"",
+            }
+        },
+        mounted() {
+        },
+        methods:{
+            SendRequest(username, password){
+                console.log(username);
+                console.log(password);
+                $.ajax({
+                    url:this.url,
+                    type:'POST',
+                    data:{
+                        'username':username,
+                        'password':password,
+                    },
+                    dataType:'json'
+                }).done(function (res) {
+                    console.log(res);
+                })
+            }
+        }
+    }
+</script>
+
+<style lang="scss" scoped>
+    html,body {
+        background-color: #2c3e50;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-items: center;
+        align-content: center;
+    }
+    body {display: -ms-flexbox;display: -webkit-box;display: flex;-ms-flex-align: center;-ms-flex-pack: center;-webkit-box-align: center;align-items: center;-webkit-box-pack: center;justify-content: center;padding-top: 40px;padding-bottom: 40px;background-color: #f5f5f5;}
+    .form-signin {width: 100%;max-width: 330px;padding: 15px;margin: 0 auto;}
+    .form-signin .checkbox {font-weight: 400;}
+    .form-signin .form-control {position: relative;box-sizing: border-box;height: auto;padding: 10px;font-size: 16px;}
+    .form-signin .form-control:focus {z-index: 2;}
+    .form-signin input[type="email"] {margin-bottom: -1px;border-bottom-right-radius: 0;border-bottom-left-radius: 0;}
+    .form-signin input[type="password"] {margin-bottom: 10px;border-top-left-radius: 0;border-top-right-radius: 0;}
+    .gate-logo{
+        background-color: #fff;
+        color: #fff;
+        width: 80%;
+        border-radius: 50%;
+        text-align: center;
+        border: #fff;
+        border-width: 500px;
+    }
+    .form-signin{
+        text-align: center;
+    }
+    .gate-open-button{
+        margin-top: 5%;
+        border-color: rgba(112,126,154,0.7);
+        background-color: rgba(112,126,154,0.7);
+    }
+    .all{
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        background-image: linear-gradient(45deg, rgba(237,183,185,0.7), rgba(82,113,147,0.7));
+    }
+</style>
