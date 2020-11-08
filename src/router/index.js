@@ -3,8 +3,12 @@ import Home from '../views/Home.vue'
 import Course from '../views/Course.vue'
 import Rocket from '../views/Rocket.vue'
 import DXX from '../views/DxxInfo'
-import Gate from "../views/Gate/GateDashboard";
+import GateIndex from "../views/Gate/GateIndex";
+import GateRecords from "../views/Gate/GateRecords";
 import GateOpen from "../views/Gate/GateOpen";
+import GateUsers from "../views/Gate/GateUsers";
+import GateReports from "../views/Gate/GateReports";
+import GateIntegrations from "../views/Gate/GateIntegrations";
 
 const routes = [
   {
@@ -30,12 +34,37 @@ const routes = [
   {
     path: '/Gate',
     name: 'Gate',
-    component: Gate
+    redirect:'/Gate/Index',
   },
   {
-    path: '/GateOpen',
+    path: '/Gate/Index',
+    name: 'GateIndex',
+    component: GateIndex,
+  },
+  {
+    path: '/Gate/Records',
+    name: 'GateRecords',
+    component: GateRecords
+  },
+  {
+    path: '/Gate/Open',
     name: 'GateOpen',
     component: GateOpen
+  },
+  {
+    path: '/Gate/Users',
+    name: 'GateUsers',
+    component: GateUsers
+  },
+  {
+    path: '/Gate/Reports',
+    name: 'GateReports',
+    component: GateReports
+  },
+  {
+    path: '/Gate/Integrations',
+    name: 'GateIntegrations',
+    component: GateIntegrations
   },
 ]
 

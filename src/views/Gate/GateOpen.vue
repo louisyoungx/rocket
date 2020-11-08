@@ -10,10 +10,11 @@
             <label for="inputPassword" class="sr-only">password</label>
             <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="密码" required>
             <button @click="SendRequest(username, password)" type="button" class="gate-open-button btn btn-lg btn-primary btn-block">开门</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 云端智能锁</p>
+            <a href="/Gate/Index">
+                <p class="mt-5 mb-3 text-muted">&copy; 云端智能锁</p>
+            </a>
         </form>
     </div>
-
 </template>
 
 <script>
@@ -33,7 +34,7 @@
         methods:{
             SendRequest(username, password){
                 console.log(username);
-                console.log(password);
+                //console.log(password);
                 $.ajax({
                     url:this.url,
                     type:'POST',
@@ -44,6 +45,7 @@
                     dataType:'json'
                 }).done(function (res) {
                     console.log(res);
+                    window.location=document.referrer
                 })
             }
         }
