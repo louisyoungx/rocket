@@ -20,11 +20,12 @@
 <script>
     import ajax from 'jquery'
     import $ from 'jquery'
+    import Swal from 'sweetalert2'
     export default {
         name: "GateOpen",
         data(){
             return{
-                url:'API/Security/open-gate/',
+                url:'/API/Security/open-gate/',
                 username:"",
                 password:"",
             }
@@ -45,9 +46,24 @@
                     dataType:'json'
                 }).done(function (res) {
                     console.log(res);
-                    window.location=document.referrer
+                    if (res === 200){
+                        Swal.fire({
+                            title:'成功！',
+                            html:'已为你打开门',
+                            icon:'success',
+                            confirmButtonText: '确定',
+                        }).then((result) => {
+                            window.location=document.referrer
+                        })
+                    }else if(res === 404){
+                        Swal.fire({
+                            icon: 'error',
+                            title: '糟糕...',
+                            html: '用户名或密码错误',
+                        })
+                    }
                 })
-            }
+            },
         }
     }
 </script>
