@@ -2,7 +2,21 @@
   <div class="all">
     <loading-rocket :ShowTitle="title" :style="{display: load}" :class="{'rocket-fadeOut':fadeOut}" @click="isLoading()"></loading-rocket>
     <div id="app" class="main" :style="{display: loaded}" :class="{'rocket-fadeIn':fadeIn}">
-      <navbar></navbar>
+      <nav-index></nav-index>
+
+      <section class="banner ">
+        <div class="cloud-service section intro-1">
+          <div class="container-font">
+            <img class="bannerlogo" src="../assets/images/ROCKET-banner-logo.png" alt="移动背景">
+            <img class="moving-bg" src="../assets/images/banner_bot.jpeg" alt="移动背景">
+          </div>
+        </div>
+        <div class="banner_con" style="position: relative;">
+          <p class="en-h1"><span>Louis启动台<br>网页级单页面工具与应用程序</span></p>
+          <p class="en-p">以跨平台开发技术、定制服务、学习数据库、生产力工具<br>全面赋能生态之力</p>
+        </div>
+      </section>
+
       <div>
         <p style="font-size: 25px">你说什么？</p>
       </div>
@@ -20,8 +34,8 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-import Navbar from '../components/Navbar'
 import LoadingRocket from '../components/LoadingRocket'
+import NavIndex from "../components/NavIndex";
 
 export default {
   name: 'Home',
@@ -35,7 +49,7 @@ export default {
     }
   },
   components: {
-    Navbar,
+    NavIndex,
     HelloWorld,
     LoadingRocket
   },
@@ -61,6 +75,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  @import "../assets/css/index_min.css";
   .all {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
