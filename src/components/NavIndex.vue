@@ -1,7 +1,7 @@
 <template>
     <header class="header-nav light-bk">
         <div class="nav-left">
-            <a href="https://www.apicloud.com/" class="logo" title="APICloud">
+            <a href="/" class="logo" title="APICloud">
                 <img src="../assets/images/rocket-logo-text(Solid).png" style="width: 150px" alt="Rocket-full">
             </a>
         </div>
@@ -74,7 +74,7 @@
 
                                 </li>
                                 <li class="navlist-li">
-                                    <a class="navsecond-t nt3" href="https://www.apicloud.com/product">
+                                    <a class="navsecond-t nt3" href="https://louisyoung.work/About">
                                         <span>
                                             了解Louis
                                         </span>
@@ -210,7 +210,7 @@
                 </li>
                 <!-- 设计 -->
                 <li class="nav-item">
-                    <a class="menu-t" href="https://www.apicloud.com/cloudAppStore" target="_blank" title="云市场">
+                    <a class="menu-t" href="https://louisyoung.work/Contact" target="_blank" title="云市场">
                       <span class="">
                         设计
                       </span>
@@ -219,7 +219,7 @@
                         <div class="navlist-content">
                             <ul class="navlist-ul">
                                 <li class="navlist-li">
-                                    <a class="navsecond-t nt10" href="https://www.apicloud.com/modulestore">
+                                    <a class="navsecond-t nt10" href="https://louisyoung.work/Contact">
                                         <span>
                                             UI设计
                                         </span>
@@ -227,19 +227,19 @@
                                     <div class="navsecond-group">
                                         <ul class="navsecond-left">
                                             <li>
-                                                <a href="https://www.apicloud.com/mod-ui">
+                                                <a href="https://louisyoung.work/Contact">
                                                     网页UI
                                                 </a>
                                                 <span>网页用户交互界面设计</span>
                                             </li>
                                             <li>
-                                                <a href="https://www.apicloud.com/mod-dev">
+                                                <a href="https://louisyoung.work/Contact">
                                                     界面布局
                                                 </a>
                                                 <span>网页响应式布局</span>
                                             </li>
                                             <li>
-                                                <a href="https://www.apicloud.com/mod-ext">
+                                                <a href="https://louisyoung.work/Contact">
                                                     移动端UI
                                                 </a>
                                                 <span>移动端界面设计</span>
@@ -247,19 +247,19 @@
                                         </ul>
                                         <ul class="navsecond-right">
                                             <li>
-                                                <a href="https://www.apicloud.com/mod-sdk">
+                                                <a href="https://louisyoung.work/Contact">
                                                     APP UI
                                                 </a>
                                                 <span>APP用户界面设计</span>
                                             </li>
                                             <li>
-                                                <a href="https://www.apicloud.com/mod-H5">
+                                                <a href="https://louisyoung.work/Contact">
                                                     H5 UI
                                                 </a>
                                                 <span>H5应用UI设计</span>
                                             </li>
                                             <li>
-                                                <a href="https://www.apicloud.com/modulestore">
+                                                <a href="https://louisyoung.work/Contact">
                                                     <span class="more">
                                                         <!-- <img src="/src/image/common/header/more.png" alt=""> -->
                                                     </span>
@@ -271,7 +271,7 @@
 
                                 </li>
                                 <li class="navlist-li">
-                                    <a class="navsecond-t nt11" href="https://www.apicloud.com/cloudAppStore">
+                                    <a class="navsecond-t nt11" href="https://louisyoung.work/Contact">
                                         <span>
                                             PS设计
                                         </span>
@@ -279,19 +279,19 @@
                                     <div class="navsecond-group">
                                         <ul class="navsecond-left">
                                             <li>
-                                                <a href="https://www.apicloud.com/cloudAppStore/education">
+                                                <a href="https://louisyoung.work/Contact">
                                                     平面设计
                                                 </a>
                                                 <span>各种平面设计图</span>
                                             </li>
                                             <li>
-                                                <a href="https://www.apicloud.com/cloudAppStore/takeOut">
+                                                <a href="https://louisyoung.work/Contact">
                                                     海报
                                                 </a>
                                                 <span>主题海报</span>
                                             </li>
                                             <li>
-                                                <a href="https://www.apicloud.com/cloudAppStore/corporate">
+                                                <a href="https://louisyoung.work/Contact">
                                                     企业展示
                                                 </a>
                                                 <span>展示企业信息、案例设计</span>
@@ -299,19 +299,19 @@
                                         </ul>
                                         <ul class="navsecond-right">
                                             <li>
-                                                <a href="https://www.apicloud.com/cloudAppStore/service">
+                                                <a href="https://louisyoung.work/Contact">
                                                     LOGO设计
                                                 </a>
                                                 <span>精致LOGO</span>
                                             </li>
                                             <li>
-                                                <a href="https://www.apicloud.com/cloudAppStore/fresh">
+                                                <a href="https://louisyoung.work/Contact">
                                                     PPT设计
                                                 </a>
                                                 <span>高质感PPT</span>
                                             </li>
                                             <li>
-                                                <a href="https://www.apicloud.com/cloudAppStore/live">
+                                                <a href="https://louisyoung.work/Contact">
                                                     Word文章及排版
                                                 </a>
                                                 <span>代写文案及排版</span>
@@ -320,7 +320,7 @@
                                     </div>
                                 </li>
                                 <li class="navlist-li">
-                                    <a class="navsecond-t nt12" href="https://www.apicloud.com/posterCHosting">
+                                    <a class="navsecond-t nt12" href="https://louisyoung.work/Contact">
                                         <span>
                                             摄影
                                         </span>
@@ -328,7 +328,7 @@
                                     <div class="navsecond-group">
                                         <ul>
                                             <li>
-                                                <a href="https://www.apicloud.com/posterCHosting">
+                                                <a href="https://louisyoung.work/Contact">
                                                     产品、人像、海报摄影
                                                 </a>
                                                 <span>各种摄影类别应有尽有</span>
@@ -343,7 +343,7 @@
                 </li>
                 <!-- 开发者 -->
                 <li class="nav-item">
-                    <a class="menu-t" href="https://www.apicloud.com/vipservice/price" target="_blank" title="开发者">
+                    <a class="menu-t" href="/" target="_blank" title="开发者">
                         <span><!-- badge-red -->
                             开发者
                         </span>
@@ -352,7 +352,7 @@
                         <div class="navlist-content">
                             <ul class="navlist-ul">
                                 <li class="navlist-li">
-                                    <a class="navsecond-t nt7" href="https://www.apicloud.com/vipservice/price">
+                                    <a class="navsecond-t nt7" href="/">
                                         <span>
                                             Rocket启动台
                                         </span>
@@ -402,7 +402,7 @@
                                     </div>
                                 </li>
                                 <li class="navlist-li">
-                                    <a class="navsecond-t nt8" href="https://www.apicloud.com/service_provider">
+                                    <a class="navsecond-t nt8" href="/Gate">
                                         <span>
                                             云端智能锁
                                         </span>
@@ -425,7 +425,7 @@
                                     </div>
                                 </li>
                                 <li class="navlist-li">
-                                    <a class="navsecond-t nt7" href="https://www.apicloud.com/vipservice/price">
+                                    <a class="navsecond-t nt7" href="/DXX">
                                         <span>
                                             生态合作
                                         </span>
