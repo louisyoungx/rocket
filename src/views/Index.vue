@@ -12,14 +12,16 @@
             <p class="en-p">以跨平台开发技术、定制服务、学习数据库、生产力工具<br>全面赋能生态之力</p>
         </div>
     </div>
+    <nav-buttom></nav-buttom>
 
 </template>
 
 <script>
     import NavIndex from "../components/NavIndex";
+    import NavButtom from "../components/NavButtom";
     export default {
         name: "Index",
-        components: {NavIndex}
+        components: {NavButtom, NavIndex},
     }
 </script>
 

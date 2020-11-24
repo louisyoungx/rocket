@@ -29,10 +29,9 @@
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
+  <nav-buttom></nav-buttom>
 </template>
 
 <script>
@@ -43,10 +42,11 @@
   import BScroll from 'better-scroll'
   import LoadingRocket from '../components/LoadingRocket'
   import Navbar from '../components/Navbar'
+  import NavButtom from "../components/NavButtom";
 
   export default {
     name: 'DxxInfo',
-    components: { Navbar, LoadingRocket },
+    components: {NavButtom, Navbar, LoadingRocket },
     data(){
       return{
         title:"L o a d i n g . . . ",

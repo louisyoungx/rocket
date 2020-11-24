@@ -100,15 +100,17 @@
             </div>
         </div>
     </div>
-
+    <nav-buttom></nav-buttom>
 </template>
 
 <script>
     import 'bootstrap/dist/css/bootstrap.min.css'
     import 'bootstrap/dist/js/bootstrap.min'
+    import NavButtom from "../../../components/NavButtom";
 
     export default {
         name: "GateBase",
+        components: {NavButtom},
         data(){
             return{
                 Status:{
