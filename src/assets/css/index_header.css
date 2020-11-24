@@ -16,9 +16,12 @@ html a{
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 455px) {
     .nav-right{
         display: none;
+    }
+    .container-font{
+        width: 80% !important;
     }
 }
 
@@ -164,8 +167,7 @@ header.header-nav:hover .menu-t span{
 .nav-list .nav-item:hover::after{
     display: block;
     content: '';
-    width: 100%;
-    height: 100px;
+
 }
 
 .navlist-content{
@@ -225,7 +227,7 @@ header.header-nav:hover .menu-t span{
     width: 0;
     height: 100%;
     border-left: 1px solid #eeeeee;
-} 
+}
 .navlist-ul>li .navsecond-left{
     margin-right:20px;
 }

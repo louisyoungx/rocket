@@ -157,11 +157,11 @@ body{
         transform: translateY(-300px);
     }
     100%{
-        -webkit-transform: translateY(-800px);
-        -moz-transform: translateY(-800px);
-        -ms-transform: translateY(-800px);
-        -o-transform: translateY(-800px);
-        transform: translateY(-800px);
+        -webkit-transform: translateY(-100vh);
+        -moz-transform: translateY(-100vh);
+        -ms-transform: translateY(-100vh);
+        -o-transform: translateY(-100vh);
+        transform: translateY(-100vh);
     }
 }
 @keyframes intro-img-bg {
@@ -173,10 +173,10 @@ body{
         transform: translateY(-300px);
     }
     100%{
-        -webkit-transform: translateY(-800px);
-        -moz-transform: translateY(-800px);
-        -ms-transform: translateY(-800px);
-        -o-transform: translateY(-800px);
-        transform: translateY(-800px);
+        -webkit-transform: translateY(-100vh);
+        -moz-transform: translateY(-100vh);
+        -ms-transform: translateY(-100vh);
+        -o-transform: translateY(-100vh);
+        transform: translateY(-100vh);
     }
 }
