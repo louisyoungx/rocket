@@ -1,26 +1,32 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 import Index from '../views/Index.vue'
-import Course from '../views/Course.vue'
-import Rocket from '../views/Rocket.vue'
-import DXX from '../views/DxxInfo'
-import GateIndex from "../views/Gate/GateIndex";
-import GateRecords from "../views/Gate/GateRecords";
-import GateOpen from "../views/Gate/GateOpen";
-import GateUsers from "../views/Gate/GateUsers";
-import GateReports from "../views/Gate/GateReports";
-import GateIntegrations from "../views/Gate/GateIntegrations";
+import Application from "../views/Application";
+import Course from '../views/Applications/Exec/Course.vue'
+import Rocket from '../views/Applications/Rocket/index'
+import Home from '../views/Applications/Rocket/Home.vue'
+import DXX from '../views/Applications/DXX/index'
+import GateIndex from "../views/Applications/Gate/GateIndex";
+import GateRecords from "../views/Applications/Gate/GateRecords";
+import GateOpen from "../views/Applications/Gate/GateOpen";
+import GateUsers from "../views/Applications/Gate/GateUsers";
+import GateReports from "../views/Applications/Gate/GateReports";
+import GateIntegrations from "../views/Applications/Gate/GateIntegrations";
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: '/',
     redirect: '/Index'
   },
   {
     path: '/Index',
     name: 'Index',
     component: Index
+  },
+  {
+    path: '/Application/',
+    name: 'Application',
+    component: Application
   },
   {
     path: '/Course',
