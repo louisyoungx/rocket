@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Index from '../views/Index.vue'
 import Application from "../views/Application";
+import Settings from "../views/Settings";
 import Course from '../views/Applications/Exec/Course.vue'
 import Rocket from '../views/Applications/Rocket/index'
 import Home from '../views/Applications/Rocket/Home.vue'
@@ -27,6 +28,11 @@ const routes = [
     path: '/Application/',
     name: 'Application',
     component: Application
+  },
+  {
+    path: '/Settings/',
+    name: 'Settings',
+    component: Settings
   },
   {
     path: '/Course',

@@ -1,4 +1,5 @@
 <template>
+    <nav-buttom></nav-buttom>
     <div class="all">
         <!--Navbar-->
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
@@ -100,7 +101,6 @@
             </div>
         </div>
     </div>
-    <nav-buttom></nav-buttom>
 </template>
 
 <script>

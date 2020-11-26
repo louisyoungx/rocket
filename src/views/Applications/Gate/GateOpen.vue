@@ -90,7 +90,7 @@
                 window.history.back();
             },
             onSelect(option) {
-                Toast(option.name);
+                this.$toast(option.name);
                 this.showShare = false;
             },
         }

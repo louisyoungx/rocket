@@ -1,8 +1,19 @@
 <template>
   <div class="all wrapper">
     <loading-rocket :ShowTitle="title" :style="{display: load}" :class="{'rocket-fadeOut':fadeOut}" @click="isLoading()"></loading-rocket>
-    <div id="app" class="container class-container main" :style="{display: loaded}" :class="{'rocket-fadeIn':fadeIn}">
-      <h2 class="class-title">180851班青年大学习</h2>
+    <div id="app" class="container main" :style="{display: loaded}" :class="{'rocket-fadeIn':fadeIn}">
+      <div class="dxx-index-moblie">
+        <van-nav-bar
+                class="dxx-index-moblie"
+                title="青年大学习"
+                left-text="返回"
+                right-text="分享"
+                left-arrow
+                @click-left="goApplication"
+                @click-right="showShare = true"
+        />
+      </div>
+      <h2 class="class-title class-container">180851班</h2>
       <!--总结-->
       <div>
         <p>180851班共 {{res.AllNum}} 人，已完成 {{res.DoNum}} 人，未完成 {{res.DontNum}} 人</p>
@@ -31,7 +42,7 @@
       </div>
     </div>
   </div>
-  <nav-buttom></nav-buttom>
+  <nav-buttom class="dxx-index-moblie"></nav-buttom>
 </template>
 
 <script>
@@ -57,6 +68,14 @@
         loaded:'none',
         fadeOut:false,
         fadeIn:false,
+        showShare: false,
+        options: [
+          { name: '微信', icon: 'wechat' },
+          { name: '微博', icon: 'weibo' },
+          { name: '复制链接', icon: 'link' },
+          { name: '分享海报', icon: 'poster' },
+          { name: '二维码', icon: 'qrcode' },
+        ],
       }
     },
     mounted () {
@@ -94,11 +113,38 @@
           }, 300)
         }
       },
+      goApplication(){
+        window.location.href = '/Application'
+      },
+      onSelect(option) {
+        this.$toast(option.name);
+        this.showShare = false;
+      },
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+
+  #nav {
+    padding: 30px;
+
+    a {
+      font-weight: bold;
+      color: #2c3e50;
+
+      &.router-link-exact-active {
+        color: #42b983;
+      }
+    }
+  }
   .all {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -125,6 +171,11 @@
   }
   .class-card{
     margin-bottom: 5%;
+  }
+  @media only screen and (min-width: 455px) {
+    .dxx-index-moblie{
+      display: none;
+    }
   }
 
 </style>
