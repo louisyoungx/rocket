@@ -28,7 +28,7 @@
 <style lang="scss" scoped>
     @import "../assets/css/index_min.css";
     .index-main{
-        height: 100vh;
+        height: 80vh;
         display: flex;
         flex-wrap: wrap;
         align-items: center;

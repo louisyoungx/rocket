@@ -150,16 +150,17 @@
                     },
                     options: this.chart_setting_option,
                 });
+                // 环形图
+                if (this.chart1 === ""){
+                    this.DoughnutChart()
+                }//雷达图
+                else if(this.chart1 === "none"){
+                    this.RadarChart()
+                }
             })
             const c = this.chart;
 
-            // 环形图
-            if (this.chart1 === ""){
-                this.DoughnutChart()
-            }//雷达图
-            else if(this.chart1 === "none"){
-                this.RadarChart()
-            }
+
         },
         methods:{
             AddIndexStr1(ID){

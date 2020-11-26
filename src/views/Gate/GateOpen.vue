@@ -1,4 +1,10 @@
 <template>
+    <van-nav-bar
+            title="云端智能锁"
+            left-text="返回"
+            left-arrow
+            @click-left="onClickLeft"
+    />
     <div class="all">
         <form class="form-signin">
             <a href="/gate">
@@ -63,6 +69,9 @@
                         })
                     }
                 })
+            },
+            onClickLeft() {
+                window.history.back();
             },
         }
     }

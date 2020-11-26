@@ -1,9 +1,10 @@
 <template>
-    <van-button type="primary">主要按钮</van-button>
-    <van-button type="success">成功按钮</van-button>
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="warning">警告按钮</van-button>
-    <van-button type="danger" >危险按钮</van-button>
+    <van-nav-bar
+            title="云端智能锁"
+            left-text="返回"
+            left-arrow
+            @click-left="onClickLeft"
+    />
     <van-tabbar v-model="active">
         <van-tabbar-item name="home" icon="home-o">标签</van-tabbar-item>
         <van-tabbar-item name="search" icon="search">标签</van-tabbar-item>
@@ -13,6 +14,7 @@
     <van-button loading type="primary" />
     <van-button loading type="primary" loading-type="spinner" />
     <van-button loading type="primary" loading-text="加载中..." />
+
 </template>
 
 <script>
@@ -21,7 +23,16 @@
         data() {
             return {
                 active: 'home',
+                loading: true,
             };
+        },
+        methods: {
+            onClickLeft() {
+                Toast('返回');
+            },
+            onClickRight() {
+                Toast('按钮');
+            },
         },
     };
 </script>

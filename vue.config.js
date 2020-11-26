@@ -13,13 +13,13 @@ module.exports = {
         themeColor: '#2c3e50',
         msTileColor: '#2c3e50',
         appleMobileWebAppCapable: 'yes',
-        appleMobileWebAppStatusBarStyle: '#2c3e50',
+        appleMobileWebAppStatusBarStyle: 'black',
         iconPaths:{
-            favicon16: './img/logos/Rocket-16x16.jpg',
-            favicon32: './img/logos/Rocket-32x32.jpg',
-            appleTouchIcon: './img/logos/Rocket-152x152.jpg',
-            maskIcon: './img/logos/Rocket-16x16.svg',
-            msTileImage: './img/logos/Rocket-144x144.jpg',
+            favicon16: "./img/icons/colors/Rocket-32x.png",
+            favicon32: "./img/icons/single/Rocket-16x.png",
+            appleTouchIcon: "./img/icons/colors/Rocket-192x.png",
+            maskIcon: "./img/icons/colors/Rocket-16x.svg",
+            msTileImage: "./img/icons/colors/Rocket-144x.png",
         }
     }
 }
