@@ -3,7 +3,7 @@
     <div class="index-main">
         <div class="index-banner-div cloud-service section intro-1">
             <div class="container-font">
-                <img class="bannerlogo" src="../assets/images/ROCKET-banner-logo.png" alt="移动背景">
+                <img class="bannerlogo" src="../assets/images/ROCKET-banner-logo.png" alt="字体背景">
                 <img class="moving-bg" style="height: 100vh" src="../assets/images/banner_bot.jpeg" alt="移动背景">
             </div>
         </div>

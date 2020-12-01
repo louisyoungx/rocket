@@ -16,7 +16,7 @@
                 </div>
             </div>
 
-            <canvas class="my-4 chartjs-render-monitor" id="myChart" width="1114" height="470" style="display: block; height: 235px; width: 557px;"></canvas>
+            <canvas class="my-4 chartjs-render-monitor" id="myChart" width="1114" height="470" style="display: block; height: 130px; width: 288px;"></canvas>
 
         </div>
         <!--Dashboard-->
@@ -157,8 +157,9 @@
                 else if(this.chart1 === "none"){
                     this.RadarChart()
                 }
+                const c = this.chart;
             })
-            const c = this.chart;
+
 
 
         },

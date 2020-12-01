@@ -3,5 +3,7 @@
 </template>
 
 <style lang="scss">
-
+  button{
+    outline:none !important;
+  }
 </style>

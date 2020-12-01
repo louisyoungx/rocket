@@ -386,12 +386,12 @@
                                             </ul>
                                             <ul class="navsecond-right">
                                                 <li>
-                                                    <a class="" href="/Course">
-                                                        <span><!-- sale-hint -->
-                                                            Course
+                                                    <a class="" href="/PC/Application">
+                                                        <span>
+                                                            Application
                                                         </span>
                                                     </a>
-                                                    <span>组件通信小练习</span>
+                                                    <span>应用</span>
                                                 </li>
                                                 <li>
                                                     <a href="/Rocket">
@@ -470,12 +470,12 @@
             </div>
             <div class="nav-right">
                 <div class="login-group"><!--登录group-->
-                    <a class="login-button" href="/signin" rel="nofollow">
-                        登录
+                    <a class="login-button" href="/subscribe" rel="nofollow">
+                        订阅
                     </a>
                     <span></span>
-                    <a class="green-button register-button unifiedbtn-primary" href="/signup" rel="nofollow" id="layout-singup">
-                        注册
+                    <a class="green-button register-button unifiedbtn-primary" href="/download" rel="nofollow" id="layout-singup">
+                        下载
                     </a>
                 </div>
             </div>

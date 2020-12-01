@@ -12,6 +12,7 @@ import GateOpen from "../views/Applications/Gate/GateOpen";
 import GateUsers from "../views/Applications/Gate/GateUsers";
 import GateReports from "../views/Applications/Gate/GateReports";
 import GateIntegrations from "../views/Applications/Gate/GateIntegrations";
+import PCApplication from "../views/PC/Application"
 
 const routes = [
   {
@@ -83,6 +84,11 @@ const routes = [
     path: '/Gate/Integrations',
     name: 'GateIntegrations',
     component: GateIntegrations
+  },
+  {
+    path: '/PC/Application/',
+    name: 'PCApplication',
+    component: PCApplication
   },
 ]
 

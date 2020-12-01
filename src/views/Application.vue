@@ -6,19 +6,21 @@
             @click-right="showShare = true"
         />
         <van-search
-                v-model="value"
+                v-model="searchValue"
                 placeholder="请输入搜索关键词"
                 input-align="center"
         />
-        <van-swipe :autoplay="5000">
-            <van-swipe-item v-for="image in images">
-                <van-image fit="contain" height="20rem" :src="image">
-                    <template v-slot:loading>
-                        <van-loading type="spinner" size="20" />
+        <el-carousel :interval="4000">
+            <el-carousel-item v-for="image in images" :key="images">
+                <el-image :src="image">
+                    <template #placeholder>
+                        <div class="image-slot">
+                            加载中<span class="dot">...</span>
+                        </div>
                     </template>
-                </van-image>
-            </van-swipe-item>
-        </van-swipe>
+                </el-image>
+            </el-carousel-item>
+        </el-carousel>
         <van-grid class="apps-items" :column-num="2" :gutter="10">
             <van-grid-item icon="hot-o" to="/DXX" text="青年大学习" />
             <van-grid-item icon="search" text="搜索" />
@@ -57,6 +59,7 @@
                     { name: '分享海报', icon: 'poster' },
                     { name: '二维码', icon: 'qrcode' },
                 ],
+                searchValue:'',
             };
         },
         methods:{
