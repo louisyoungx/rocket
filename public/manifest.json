@@ -1,6 +1,7 @@
  {
-   "name":"Rocket",
+   "name":"Rocket启动台",
    "short_name":"Rocket",
+   "lang": "zh-CN",
    "theme_color":"#2c3e50",
    "description": "Louis启动台, 网页级单页面工具与应用程序",
    "icons":
