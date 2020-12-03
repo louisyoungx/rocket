@@ -48,10 +48,6 @@
 
 <script>
   import axios from "axios";
-  import $ from 'jquery'
-  import 'bootstrap/dist/css/bootstrap.min.css'
-  import 'bootstrap/dist/js/bootstrap.min'
-  import BScroll from 'better-scroll'
   import LoadingRocket from '../../../components/LoadingRocket'
   import Navbar from '../../../components/Navbar'
   import NavButtom from "../../../components/NavButtom";
