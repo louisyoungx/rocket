@@ -73,7 +73,7 @@
 
 <style scoped>
     .apps-main{
-        height: 100vh;
+        height: 120vh;
         display: block;
         background-color: #f7f8fa;
     }

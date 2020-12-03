@@ -2,9 +2,8 @@
     <h2>用户</h2>
     <hr>
     <div class="container marketing">
-
         <!-- Three columns of text below the carousel -->
-        <div class="row">
+        <div class="gate-user-main">
             <div v-for="user in Users" class="card" style="width: 18rem;">
                 <img class="rounded-circle" src="../../../../assets/images/gate-logo.jpg" alt="Generic placeholder image" width="140" height="140">
                 <div class="card-body">
@@ -51,6 +50,12 @@
 </script>
 
 <style lang="scss" scoped>
+    .gate-user-main{
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        flex-wrap: wrap;
+    }
     .rounded-circle{
         margin: 5% auto 0;
     }
