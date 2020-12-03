@@ -9,6 +9,7 @@
                 v-model="searchValue"
                 placeholder="请输入搜索关键词"
                 input-align="center"
+                :shape="round"
         />
         <el-carousel :interval="4000">
             <el-carousel-item v-for="image in images" :key="images">
