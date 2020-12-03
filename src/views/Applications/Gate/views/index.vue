@@ -1,109 +1,106 @@
 <template>
-    <gate-base>
-        <!--Dashboard-->
-        <div class="gate-dashboard">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1 class="h2">近期开门次数</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group mr-2">
-                        <button class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button class="btn btn-sm btn-outline-secondary">Export</button>
-                    </div>
-                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        This week
-                    </button>
+    <!--Dashboard-->
+    <div class="gate-dashboard">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">近期开门次数</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                    <button class="btn btn-sm btn-outline-secondary">Share</button>
+                    <button class="btn btn-sm btn-outline-secondary">Export</button>
                 </div>
-            </div>
-
-            <canvas class="my-4 chartjs-render-monitor" id="myChart" width="1114" height="470" style="display: block; height: 130px; width: 288px;"></canvas>
-
-        </div>
-        <!--Dashboard-->
-        <div class="gate-dashboard">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1>进出<span class="badge new">次数/时间</span></h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <button @click="ChartSwap()" type="button" class="btn btn-sm btn-outline-secondary">切换</button>
-                </div>
-            </div>
-            <div class="gate-row">
-                <canvas :style="{display: chart1}" id="chartjs-1" class="chartjs" width="1222" height="610" style="width: 100%;"></canvas>
-                <canvas :style="{display: chart2}" id="chartjs-2" class="chartjs" width="1222" height="610" style="width: 100%;"></canvas>
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    This week
+                </button>
             </div>
         </div>
-        <!--Table-->
-        <div class="gate-table">
 
-            <h2>开门记录</h2>
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th>序号</th>
-                        <th>用户</th>
-                        <th>时间</th>
-                        <th>快照</th>
-                        <th>授权</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="user in records" :key="user.ID">
-                        <td>{{user.ID}}</td>
-                        <td>{{user.User}}</td>
-                        <td>{{user.Time}}</td>
-                        <td>
+        <canvas class="my-4 chartjs-render-monitor" id="myChart" width="1114" height="470" style="display: block; height: 130px; width: 288px;"></canvas>
+
+    </div>
+    <!--Dashboard-->
+    <div class="gate-dashboard">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1>进出<span class="badge new">次数/时间</span></h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <button @click="ChartSwap()" type="button" class="btn btn-sm btn-outline-secondary">切换</button>
+            </div>
+        </div>
+        <div class="gate-row">
+            <canvas :style="{display: chart1}" id="chartjs-1" class="chartjs" width="1222" height="610" style="width: 100%;"></canvas>
+            <canvas :style="{display: chart2}" id="chartjs-2" class="chartjs" width="1222" height="610" style="width: 100%;"></canvas>
+        </div>
+    </div>
+    <!--Table-->
+    <div class="gate-table">
+
+        <h2>开门记录</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>用户</th>
+                    <th>时间</th>
+                    <th>快照</th>
+                    <th>授权</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="user in records" :key="user.ID">
+                    <td>{{user.ID}}</td>
+                    <td>{{user.User}}</td>
+                    <td>{{user.Time}}</td>
+                    <td>
 
 
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" :data-target="AddIndexStr1(user.ID)">
-                                快照
-                            </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" :data-target="AddIndexStr1(user.ID)">
+                            快照
+                        </button>
 
-                            <!-- Modal -->
-                            <div class="modal fade" :id="AddIndexStr2(user.ID)" tabindex="-1" role="dialog" :aria-labelledby="user.ID" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" :id="user.ID">快照</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="card" style="width: 18rem;">
-                                                <img class="card-img-top" :src="user.Snapshoot" alt="Card image cap">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{{user.User}}</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">{{user.Time}}</h6>
-                                                </div>
+                        <!-- Modal -->
+                        <div class="modal fade" :id="AddIndexStr2(user.ID)" tabindex="-1" role="dialog" :aria-labelledby="user.ID" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" :id="user.ID">快照</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="card" style="width: 18rem;">
+                                            <img class="card-img-top" :src="user.Snapshoot" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{user.User}}</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">{{user.Time}}</h6>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
-                        </td>
-                        <td>{{user.Limit}}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                    </td>
+                    <td>{{user.Limit}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-    </gate-base>
+    </div>
 </template>
 
 <script>
     import axios from "axios";
-    import GateBase from "./components/GateBase";
+    import 'chart.js'
 
     export default {
         name: "GateIndex",
-        components: {GateBase},
         data(){
             return{
                 url:'/API/Security/records/',

@@ -9,8 +9,8 @@
     />
     <div class="all">
         <form class="form-signin">
-            <a href="/gate">
-                <img class="gate-logo mb-4" src="../../../assets/images/gate-logo.jpg" alt="">
+            <a href="/Gate/Index">
+                <img class="gate-logo mb-4" src="../../../../assets/images/gate-logo.jpg" alt="">
             </a>
             <h1 class="h3 mb-3 font-weight-normal" style="color: #fff">认证</h1>
             <label for="inputEmail" class="sr-only">username</label>
@@ -87,7 +87,7 @@
                 })
             },
             onClickLeft() {
-                window.history.back();
+                window.location.href = '/Gate';
             },
             onSelect(option) {
                 this.$toast(option.name);

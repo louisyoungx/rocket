@@ -1,30 +1,26 @@
 <template>
-    <gate-base>
-        <article>
-            <h3>用户 <span class="badge new">报告</span></h3>
-            <div class="labeled-chart-container">
-                <div class="canvas-holder">
-                    <canvas id="chartjs-1" class="chartjs" width="1222" height="610" style="height: 305px; width: 611px;"></canvas>
-                </div>
+    <article>
+        <h3>用户 <span class="badge new">报告</span></h3>
+        <div class="labeled-chart-container">
+            <div class="canvas-holder">
+                <canvas id="chartjs-1" class="chartjs" width="1222" height="610" style="height: 305px; width: 611px;"></canvas>
             </div>
-        </article>
-        <article>
-            <h3>用户 <span class="badge new">报告</span></h3>
-            <div class="labeled-chart-container">
-                <div class="canvas-holder">
-                    <canvas id="chartjs-2" class="chartjs" width="1222" height="610" style="height: 305px; width: 611px;"></canvas>
-                </div>
+        </div>
+    </article>
+    <article>
+        <h3>用户 <span class="badge new">报告</span></h3>
+        <div class="labeled-chart-container">
+            <div class="canvas-holder">
+                <canvas id="chartjs-2" class="chartjs" width="1222" height="610" style="height: 305px; width: 611px;"></canvas>
             </div>
-        </article>
-    </gate-base>
+        </div>
+    </article>
 </template>
 
 <script>
     import chart from 'chart.js'
-    import GateBase from "./components/GateBase";
     export default {
         name: "GateReports",
-        components: {GateBase},
         mounted() {
             // Colour variables
             const

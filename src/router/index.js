@@ -8,12 +8,13 @@ const Course = () => import ('../views/Applications/Exec/Course.vue');
 const Rocket = () => import ('../views/Applications/Rocket/index');
 const Home = () => import ('../views/Applications/Rocket/Home.vue');
 const DXX = () => import ('../views/Applications/DXX/index');
-const GateIndex = () => import ('../views/Applications/Gate/GateIndex');
-const GateRecords = () => import ('../views/Applications/Gate/GateRecords');
-const GateOpen = () => import ('../views/Applications/Gate/GateOpen');
-const GateUsers = () => import ('../views/Applications/Gate/GateUsers');
-const GateReports = () => import ('../views/Applications/Gate/GateReports');
-const GateIntegrations = () => import ('../views/Applications/Gate/GateIntegrations');
+const Gate = () => import ('../views/Applications/Gate/GateApp');
+const GateIndex = () => import ('../views/Applications/Gate/views/index');
+const GateRecords = () => import ('../views/Applications/Gate/views/Records');
+const GateOpen = () => import ('../views/Applications/Gate/views/Open');
+const GateUsers = () => import ('../views/Applications/Gate/views/Users');
+const GateReports = () => import ('../views/Applications/Gate/views/Reports');
+const GateIntegrations = () => import ('../views/Applications/Gate/views/Integrations');
 const PCApplication = () => import ('../views/PC/Application');
 
 /*
@@ -72,38 +73,42 @@ const routes = [
   {
     path: '/Gate',
     name: 'Gate',
-    redirect:'/Gate/Index',
+    component: Gate,
+    children:[
+      {
+        path: 'Index',
+        name: 'GateIndex',
+        component: GateIndex,
+      },
+      {
+        path: 'Records',
+        name: 'GateRecords',
+        component: GateRecords,
+      },
+      {
+        path: 'Open',
+        name: 'GateOpen',
+        component: GateOpen,
+      },
+      {
+        path: 'Users',
+        name: 'GateUsers',
+        component: GateUsers,
+      },
+      {
+        path: 'Reports',
+        name: 'GateReports',
+        component: GateReports,
+      },
+      {
+        path: 'Integrations',
+        name: 'GateIntegrations',
+        component: GateIntegrations,
+      },
+    ]
   },
-  {
-    path: '/Gate/Index',
-    name: 'GateIndex',
-    component: GateIndex,
-  },
-  {
-    path: '/Gate/Records',
-    name: 'GateRecords',
-    component: GateRecords
-  },
-  {
-    path: '/Gate/Open',
-    name: 'GateOpen',
-    component: GateOpen
-  },
-  {
-    path: '/Gate/Users',
-    name: 'GateUsers',
-    component: GateUsers
-  },
-  {
-    path: '/Gate/Reports',
-    name: 'GateReports',
-    component: GateReports
-  },
-  {
-    path: '/Gate/Integrations',
-    name: 'GateIntegrations',
-    component: GateIntegrations
-  },
+
+
   {
     path: '/PC/Application/',
     name: 'PCApplication',
