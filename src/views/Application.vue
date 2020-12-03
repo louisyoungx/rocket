@@ -47,9 +47,9 @@
         data() {
             return {
                 images: [
-                    'https://s3.ax1x.com/2020/11/26/DBS0tP.jpg',
-                    'https://s3.ax1x.com/2020/11/26/DBp3En.jpg',
-                    'https://s3.ax1x.com/2020/11/26/DBSwkt.jpg',
+                    '/img/Application/rocket-colors-banner.jpg',
+                    '/img/Application/nchu-utp-banner.jpg',
+                    '/img/Application/gate-banner.jpg',
                 ],
                 showShare: false,
                 options: [
