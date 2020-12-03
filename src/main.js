@@ -31,10 +31,9 @@ import {
     CellGroup,
     Tabbar,
     TabbarItem,
-    Skeleton,
     Toast,
     NavBar
 } from "vant";
-rocket.use(Switch).use(Search).use(ActionSheet).use(Grid).use(GridItem).use(Cell).use(CellGroup).use(TabbarItem).use(Tabbar).use(Skeleton).use(Toast).use(NavBar).use(ShareSheet)
+rocket.use(Switch).use(Search).use(ActionSheet).use(Grid).use(GridItem).use(Cell).use(CellGroup).use(TabbarItem).use(Tabbar).use(Toast).use(NavBar).use(ShareSheet)
 
 

@@ -3,7 +3,7 @@
     <div class="all">
         <!--Navbar-->
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-            <a class="navbar-brand col-sm-1 gate-bar-title" href="/Gate">
+            <a class="navbar-brand col-sm-1 gate-bar-title" href="/Gate/Index">
                 云端智能锁
             </a>
             <div class="navbar-button-mobile">
@@ -111,7 +111,12 @@
     export default {
         name: "GateBase",
         components: {NavButtom},
-
+        mounted() {
+            const route = this.$route.path;
+            if (route === '/Gate'){
+                window.location.href = '/Gate/Index'
+            }
+        }
     }
 </script>
 
