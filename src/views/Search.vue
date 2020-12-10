@@ -18,7 +18,7 @@
                     <i class="iconfont" id="iconGoogle">Google</i>
                 </span>
             </div>
-            <form id="form" action="https://www.baidu.com/baidu" target="_blank">
+            <form id="form" action="https://m.baidu.com/s" target="_blank">
                 <label for="input0">
                     <input type="text" class="input ypoctonod" @click="inputClick()" :class="{'none':courseFocus}" id="input0" name="word" size="30" placeholder="Search" autocomplete="off" style="opacity: 1;">
                 </label>
@@ -186,7 +186,7 @@
         }
         .input:hover{
             left: 10%;
-            top: 30vh;
+            top: 50vh;
             width: 80%;
         }
         .course{
