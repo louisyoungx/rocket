@@ -1,235 +1,258 @@
 <template>
-    <gate-base>
-        <!--Dashboard-->
-        <div class="gate-dashboard">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1 class="h2">近期开门次数</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group mr-2">
-                        <button class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button class="btn btn-sm btn-outline-secondary">Export</button>
+    <div class="search-main">
+        <div id="bodyBox" @click="bodyClick()">
+            <video id="liveBgBox" autoplay="true" loop="true" muted="true"></video>
+            <img class="bgbox" id="bgbox" :class="{'focus':boxFocus}" alt="" src="../assets/images/search-bg.jpg" style="display: block; opacity: 1;">
+            <div class="cover" id="cover" style="opacity: 1;"></div>
+            <div class="title" id="title" style="transform: scale(1);">
+                <h1 id="titleText" :class="{'title-move':boxFocus}">12:44</h1>
+            </div>
+            <div id="searchOptBox" class="">
+                <span class="searchOpt selected" id="baiduSearchOpt">
+                    <i class="iconfont" id="iconBaidu">Baidu</i>
+                </span>
+                <span class="searchOpt" id="bingSearchOpt">
+                    <i class="iconfont" id="iconBing">Bing</i>
+                </span>
+                <span class="searchOpt" id="googleSearchOpt">
+                    <i class="iconfont" id="iconGoogle">Google</i>
+                </span>
+            </div>
+            <input type="text" class="input ypoctonod" @click="inputClick()" id="input0" name="word" size="30" placeholder="Search" autocomplete="off" style="opacity: 1;">
+            <div class="keyword" id="keyword" style="height: auto; opacity: 0; display: none;"></div>
+            <div class="quotebox waves-effect waves-light hide" id="quotebox" style="z-index: 1; animation: 0s ease 0s 1 normal none running none;">
+                <span class="quote-bg"></span>
+                <p class="quote-content" id="quoteContent"></p>
+                <p class="quote-author" id="quoteAuthor"></p>
+                <span id="btnAddQuoteToNote" role="button" tabindex="0"><i class="iconfont" id="iconAddQuoteToNote"></i><span id="txtAddQuoteToNote"> 收藏到便笺</span></span>
+            </div>
+            <ul class="course" :class="{'course-click':courseStatus}"  @click="courseClick()">
+                <li class="course-iten-first"></li>
+                <li class="course-item">
+                    <p class="course-item-name">{{course.name}}</p>
+                    <!--<p class="course-item-teacher">{{course.teacher}}</p>-->
+                    <div class="course-item-div">
+                        <h3 class="course-item-time" style="width: 100%">{{course.time}}</h3>
+                        <h3 class="course-item-classroom" style="width: 100%">{{course.classroom}}</h3>
                     </div>
-                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        This week
-                    </button>
-                </div>
-            </div>
-
-            <canvas class="my-4 chartjs-render-monitor" id="myChart" height="235px" v-bind:class="{ canvasHeight: isCanvasHeight, canvasWidth: isCanvasWidth }"></canvas>
+                </li>
+            </ul>
 
         </div>
-        <!--Dashboard-->
-        <div class="gate-dashboard">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1>进出<span class="badge new">次数/时间</span></h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <button @click="ChartSwap()" type="button" class="btn btn-sm btn-outline-secondary">切换</button>
-                </div>
-            </div>
-            <div class="gate-row">
-                <canvas :style="{display: chart1}" id="chartjs-1" class="chartjs" width="1222" height="610" style="width: 100%;"></canvas>
-                <canvas :style="{display: chart2}" id="chartjs-2" class="chartjs" width="1222" height="610" style="width: 100%;"></canvas>
-            </div>
-        </div>
-        <!--Table-->
-        <div class="gate-table">
-
-            <h2>开门记录</h2>
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th>序号</th>
-                        <th>用户</th>
-                        <th>时间</th>
-                        <th>快照</th>
-                        <th>授权</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="user in records" :key="user.ID">
-                        <td>{{user.ID}}</td>
-                        <td>{{user.User}}</td>
-                        <td>{{user.Time}}</td>
-                        <td>
-
-
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" :data-target="AddIndexStr1(user.ID)">
-                                快照
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" :id="AddIndexStr2(user.ID)" tabindex="-1" role="dialog" :aria-labelledby="user.ID" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" :id="user.ID">快照</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="card" style="width: 18rem;">
-                                                <img class="card-img-top" :src="user.Snapshoot" alt="Card image cap">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{{user.User}}</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">{{user.Time}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </td>
-                        <td>{{user.Limit}}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </gate-base>
+    </div>
+    <nav-buttom></nav-buttom>
 </template>
 
 <script>
+    import NavButtom from "../components/NavButtom";
     import axios from "axios";
-    import GateBase from "./components/GateBase";
-
     export default {
-        name: "GateIndex",
-        components: {GateBase},
+        name: "Search",
+        components: {NavButtom},
         data(){
             return{
-                url:'/API/Security/records/',
-                chart_labels:["9.17", "9.18", "9.19", "9.20", "9.21", "9.22", "9.23"],
-                chart_data:[52, 26, 64, 22, 19, 42, 96],
-                records:[],
-                chart_setting_option:{
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: false
-                            }
-                        }]
-                    },
-                    legend: {
-                        display: false,
-                    }
+                boxFocus: false,
+                courseFocus: false,
+                focus: false,
+                courseStatus:false,
+                url: '/API/Class/CourseJson/Louis/',
+                courseList: [],
+                course: {
+                    name: '',
+                    teacher: '',
+                    classroom: '',
+                    time: '',
                 },
-                chart1:"",
-                chart2:"none",
-                isCanvasHeight:true,
-                isCanvasWidth:false,
+                timeInfo: [
+                    "8:00-9:40",
+                    "8:00-9:40",
+                    "10:00-11:40",
+                    "10:00-11:40",
+                    "13:30-15:10",
+                    "13:30-15:10",
+                    "16:30-18:30",
+                    "16:30-18:30"
+                ],
             }
         },
         mounted() {
-            axios.get(this.url).then(res=>{
+            const date = new Date()
+            const week = date.getDay()
+            const hour = date.getHours()
+            const min = date.getMinutes()
+            let which = this.whichCourse(hour, min);
+            // console.log(week, hour, min);
+            axios.get(this.url).then(res => {
                 console.log(res.data);
-                this.records = res.data.records
-                this.chart_labels = res.data.chart_labels
-                this.chart_data = res.data.chart_data
+                let Res  = res.data
+                let courseInfo = res.data[week-1].节次
+                // console.log(this.course);
 
-                //折线图
-                const ctx = document.getElementById("myChart");
-                const myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: this.chart_labels,
-                        datasets: [{
-                            data: this.chart_data,
-                            lineTension: 0,
-                            backgroundColor: 'transparent',
-                            borderColor: '#007bff',
-                            borderWidth: 4,
-                            pointBackgroundColor: '#007bff'
-                        }]
-                    },
-                    options: this.chart_setting_option,
-                });
-                // 环形图
-                if (this.chart1 === ""){
-                    this.DoughnutChart()
-                }//雷达图
-                else if(this.chart1 === "none"){
-                    this.RadarChart()
+                /*
+                for (let i = 0; i < this.course.length; i++){
+                    console.log(this.course[i]);
                 }
-                const c = this.chart;
+                */
+                // which = 3;
+                let course = null;
+                const result = courseInfo.filter(function (item, index, array) {
+                    // console.log(item, index)
+                    if (parseInt(item.节次名) === which) {
+                        course = item.课程[0];
+                    }
+                });
+                if (course == null && week !== 7){
+                    course = Res[week].节次[0].课程[0]
+                    which = parseInt(Res[week].节次[0].节次名)
+                    Res = null;
+                }
+                this.courseList = course;
+                course = null;
+                this.course.name = this.courseList.课程名
+                this.course.teacher = this.courseList.教师
+                this.course.classroom = this.courseList.教室
+                this.course.time = this.timeInfo[which]
+                console.log(this.courseList);
+                console.log(this.course);
             })
+
+            // console.log(typeof this.course);
+
+
+
         },
         methods:{
-            AddIndexStr1(ID){
-                return "#index-" + ID
-            },
-            AddIndexStr2(ID){
-                return "index-" + ID
-            },
-            ChartSwap(){
-                if (this.chart1 === ""){
-                    this.chart1 = "none";
-                    this.chart2 = ""
-                    this.RadarChart()
-                }else if(this.chart1 === "none"){
-                    this.chart1 = "";
-                    this.chart2 = "none"
-                    this.DoughnutChart()
+            whichCourse(hour, min=0){
+                if (hour >= 0 && hour < 8){
+                    return 1;
                 }
-                console.log(this.chart1, this.chart2);
+                else if(hour >=8 && hour <10) {
+                    return 3;
+                }
+                else if(hour >=10 && hour <14) {
+                    return 5;
+                }
+                else if(hour >=14 && hour <16) {
+                    return 7;
+                }
+                else if(hour >=19 && hour <24) {
+                    return 0;
+                }
             },
-            DoughnutChart(){
-                // 环形图
-                const
-                    C1 = "rgba(255, 99, 132, 0.2)",
-                    C2 = "rgba(255, 159, 64, 0.2)",
-                    C3 = "rgba(255, 205, 86, 0.2)",
-                    C4 = "rgba(75, 192, 192, 0.2)",
-                    C5 = "rgba(54, 162, 235, 0.2)",
-                    C6 = "rgba(153, 102, 255, 0.2)",
-                    C7 = "rgba(201, 203, 207, 0.2)";
-
-                const myDoughnutChart = new Chart(document.getElementById("chartjs-1"),{
-                    type:"doughnut",
-                    data:{
-                        labels:["Louis","XuYu","DZZ","XLH","Others"],
-                        datasets:[{
-                            label:"My First Dataset",
-                            data:[757,163,109,171,169],
-                            backgroundColor:[
-                                C1, C2, C3, C4, C5,
-                            ],
-                            hoverBackgroundColor:[
-                                C6, C6, C6, C6, C6,
-                            ]
-                        }]
-                    },
-                });
+            bodyClick() {
+                if (this.focus === true){
+                    this.boxFocus = false;
+                    this.focus = false;
+                }
             },
-            RadarChart(){
-                new Chart(document.getElementById("chartjs-2"),{"type":"radar","data":{"labels":["Eating","Drinking","Sleeping","Designing","Coding","Cycling","Running"],"datasets":[{"label":"My First Dataset","data":[65,59,90,81,56,55,40],"fill":true,"backgroundColor":"rgba(255, 99, 132, 0.2)","borderColor":"rgb(255, 99, 132)","pointBackgroundColor":"rgb(255, 99, 132)","pointBorderColor":"#fff","pointHoverBackgroundColor":"#fff","pointHoverBorderColor":"rgb(255, 99, 132)"},{"label":"My Second Dataset","data":[28,48,40,19,96,27,100],"fill":true,"backgroundColor":"rgba(54, 162, 235, 0.2)","borderColor":"rgb(54, 162, 235)","pointBackgroundColor":"rgb(54, 162, 235)","pointBorderColor":"#fff","pointHoverBackgroundColor":"#fff","pointHoverBorderColor":"rgb(54, 162, 235)"}]},"options":{"elements":{"line":{"tension":0,"borderWidth":3}}}});
+            inputClick() {
+                this.boxFocus =  true;
+                const that = this;
+                setTimeout(function (){
+                    that.focus = true;
+                }, 100);
+            },
+            courseClick() {
+                this.courseFocus =  !this.courseFocus;
+                this.courseStatus = !this.courseStatus;
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
-    .gate-row{
+    @import "../assets/css/search-main.css";
+
+    @media screen and (max-width: 600px){
+        .title-move {
+            position: absolute;
+            margin-top: 10vh;
+            font-size: 10vw;
+        }
+        .input:hover{
+            left: 10%;
+            top: 30vh;
+            width: 80%;
+        }
+        .course{
+            width: 90% !important;
+        }
+        .course-item-name{
+            width: 100%;
+            font-size: 6vw !important;
+            white-space:nowrap;
+        }
+        .course-item-time .course-item-classroom{
+            white-space:nowrap !important;
+            font-size: 4vw !important;
+            width: 100% !important;
+            p {
+                width: 100% !important;
+            }
+        }
+    }
+    /*    .search-main{
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+        }*/
+    .none{
+        display: none;
+        opacity: 0;
+    }
+    .course{
+        margin: 0 auto;
+        opacity: 0.5;
+        position: relative;
+        top:85%;
+        background-color: white;
+        width: 50%;
+        height: 50%;
+        border-radius: 5vw;
+        transition: all 0.25s;
+        transition-property: all;
+        transition-duration: 0.25s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+        h1 {
+            color: black !important;
+        }
+    }
+    .course-click{
+        top: 20% !important;
+        border-radius: 10vw;
+    }
+    .course-iten-first{
+        height: 1px;
+        width: 100%;
+    }
+    .course-item{
+        margin: 5vw;
         display: flex;
-        flex-direction: row;
         flex-wrap: nowrap;
     }
-    .modal-body{
-        margin: 0 auto;
+
+    .course-item-div{
+        display: flex;
+        justify-content: right;
+        flex-wrap: wrap;
+        opacity: 0.8;
     }
-    .canvasHeight{
-        display: block !important;
-        height: 235px !important;
+
+    .course-item-name{
+        width: 60%;
+        font-size: 30px;
+        white-space:nowrap;
     }
-    .canvasWidth{
-        width: 557px;
+    .course-item-time .course-item-classroom{
+        white-space:nowrap !important;
+        font-size: 50px;
+        width: 100% !important;
+        p {
+            width: 100% !important;
+        }
     }
 </style>

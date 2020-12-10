@@ -24,7 +24,7 @@
         </el-carousel>
         <van-grid class="apps-items" :column-num="2" :gutter="10">
             <van-grid-item icon="hot-o" to="/DXX" text="青年大学习" />
-            <van-grid-item icon="search" text="搜索" />
+            <van-grid-item icon="search" to="/Search" text="搜索" />
             <van-grid-item icon="chart-trending-o" to="/Gate/Index" text="云锁" />
             <van-grid-item icon="notes-o" to="/Course" text="备忘录" />
             <van-grid-item icon="warn-o" to="/Rocket" text="测试" />

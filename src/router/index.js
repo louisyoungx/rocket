@@ -3,10 +3,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 // const Index = () => import('../views/Index.vue')
 import Index from '../views/Index.vue'
 const Application = () => import ('../views/Application');
+const Search = () => import ('../views/Search');
 const Settings = () => import ("../views/Settings");
-const Course = () => import ('../views/Applications/Exec/Course.vue');
+const Course = () => import ('../views/Applications/Exec/Course');
 const Rocket = () => import ('../views/Applications/Rocket/index');
-const Home = () => import ('../views/Applications/Rocket/Home.vue');
+const Home = () => import ('../views/Applications/Rocket/Home');
+const Test = () => import ('../views/Applications/Rocket/Home');
 const DXX = () => import ('../views/Applications/DXX/index');
 const Gate = () => import ('../views/Applications/Gate/GateApp');
 const GateIndex = () => import ('../views/Applications/Gate/views/index');
@@ -46,12 +48,17 @@ const routes = [
     component: Index
   },
   {
-    path: '/Application/',
+    path: '/Application',
     name: 'Application',
     component: Application
   },
   {
-    path: '/Settings/',
+    path: '/Search',
+    name: 'Search',
+    component: Search
+  },
+  {
+    path: '/Settings',
     name: 'Settings',
     component: Settings
   },
@@ -64,6 +71,11 @@ const routes = [
     path: '/Rocket',
     name: 'Rocket',
     component: Rocket
+  },
+  {
+    path: '/Test',
+    name: 'Test',
+    component: Test
   },
   {
     path: '/DXX',

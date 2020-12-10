@@ -54,6 +54,7 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
         name: 'Rocket',
         data() {
@@ -65,7 +66,16 @@
                     'https://s3.ax1x.com/2020/11/26/DBp3En.jpg',
                     'https://s3.ax1x.com/2020/11/26/DBSwkt.jpg',
                 ],
+                url: '/API/Class/CourseJson/Louis/',
+                message: "666",
+                course: '',
             };
+        },
+        mounted() {
+            axios.get(this.url).then(res => {
+                console.log(res.data);
+            })
+            //this.course = courseInfo()
         },
         methods: {
             onClickLeft() {
