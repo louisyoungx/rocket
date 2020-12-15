@@ -28,7 +28,7 @@
             <van-grid-item icon="chart-trending-o" to="/Gate/Index" text="云锁" />
             <van-grid-item icon="notes-o" to="/Course" text="备忘录" />
             <van-grid-item icon="warn-o" to="/Rocket" text="测试" />
-            <van-grid-item icon="edit" to="/Settings" text="编辑" />
+            <van-grid-item icon="edit" @click="toEdit()" text="编辑" />
         </van-grid>
     </div>
     <van-share-sheet
@@ -68,6 +68,9 @@
                 this.$toast(option.name);
                 this.showShare = false;
             },
+            toEdit() {
+                window.location.href = "http://louisyoung.work:8083/"
+            }
         }
     }
 </script>

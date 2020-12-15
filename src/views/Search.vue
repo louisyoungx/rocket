@@ -5,7 +5,7 @@
             <img class="bgbox" id="bgbox" :class="{'focus':courseFocus, 'focusCourse':boxFocus}" alt="" src="../assets/images/search-bg.jpg" style="display: block; opacity: 1;">
             <div class="cover" id="cover" style="opacity: 1;"></div>
             <div class="title" id="title" :class="{'title-move':boxFocus, 'none':courseFocus}">
-                <h1 id="titleText">12:44</h1>
+                <h1 id="titleText">{{time}}</h1>
             </div>
             <div id="searchOptBox" class="">
                 <span class="searchOpt selected" id="baiduSearchOpt">
@@ -64,6 +64,7 @@
         components: {NavButtom},
         data(){
             return{
+                time: "00:00",
                 boxFocus: false,
                 courseFocus: false,
                 focus: false,
@@ -90,17 +91,24 @@
             }
         },
         mounted() {
-            const date = new Date()
-            const week = date.getDay()
-            const hour = date.getHours()
-            const min = date.getMinutes()
+            const date = new Date();
+            const week = date.getDay();
+            const hour = date.getHours();
+            let min = date.getMinutes();
+            this.todayCourses = [];
             let which = this.whichCourse(hour, min);
             // console.log(week, hour, min);
             axios.get(this.url).then(res => {
                 console.log(res.data);
                 let Res  = res.data;
                 let courseInfo = res.data[week-1].节次;
-                this.todayCourses = courseInfo;
+
+                for (let i in courseInfo){
+                    if (i % 2 === 0){
+                        this.todayCourses.push(courseInfo[i]);
+                    }
+                }
+
 
                 /*
                 for (let i = 0; i < this.course.length; i++){
@@ -133,7 +141,13 @@
 
             // console.log(typeof this.course);
 
-
+            const that = this;
+            setInterval(function () {
+                if (String(min).length < 2){
+                    min = "0" + String(min)
+                }
+                that.time = String(hour) + ":" + String(min)
+            }, 1000);
 
         },
         methods:{
